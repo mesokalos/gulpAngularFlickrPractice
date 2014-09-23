@@ -7,9 +7,34 @@ var FlickrCtrl = function( $scope, $http ){
 
 	$http.get("https://api.flickr.com/services/rest/?&method=flickr.people.getPublicPhotos&api_key=c607d2435746dc7c7cd10a562e0fcc81&user_id=118418195@N05&format=json&per_page=500").success(function(data) {
   		$scope.flickrPhotos = data;
-  		console.log($scope.flickrPhotos);
-  		console.log(data.photos.photo.id[2]);
-	});
+
+//		console.log(data.photos.photo[0].id); //cannot read property 'photo' of undefined
+//		console.log(data.photos[0].photo[0].id); //cannot read property '0' of undefined
+//		console.log(data.photos[0].photo.id); //cannot read property '0' of undefined
+
+//		console.log(data.photo[0].id); //cannot read property '0' of undefined
+//		console.log(data.photos[0].id);////cannot read property '0' of undefined
+//		console.log(data.photos.photo[0].id); //cannot read property 'photo' of undefined
+  		
+//		console.log(data.photos.photo.id[0]); //cannot read property 'photo' of undefined
+//		console.log(data.photo.id[0]); //cannot read property 'id' of undefined
+//		console.log(data.photos.id[0]);////cannot read property 'id' of undefined
+
+//		console.log(jsonFlickrApi.photos.photo.id[0]); //jsonFlickrApi is not defined
+//		console.log(jsonFlickrApi.photo.id[0]); //jsonFlickrApi is not defined
+//		console.log(jsonFlickrApi.photos.id[0]);//jsonFlickrApi is not defined
+
+//		console.log($scope.flickrPhotos.photos.photo.id[0]); //cannot read property 'photo' of undefined
+//		console.log($scope.flickrPhotos.photo.id[0]); //cannot read property 'id' of undefined
+//		console.log($scope.flickrPhotos.photos.id[0]);//cannot read property 'id' of undefined
+
+//		console.log($scope.flickrPhotos.photos.photo[0].id); //cannot read property 'photo' of undefined
+//		console.log($scope.flickrPhotos.photo[0].id); //cannot read property 'photo' of undefined
+		console.log($scope.flickrPhotos.photos[0].id);//cannot read property '0' of undefined
+
+
+		console.log($scope.flickrPhotos);
+			});
 
 };
 
@@ -81,7 +106,7 @@ app.controller('TestCtrl',['$scope', TestCtrl]);
 app.controller('TheCtrl',['$scope', TheCtrl]);
 app.controller('FlickrCtrl',['$scope', '$http',FlickrCtrl]);
 
-}).call(this,require("oMfpAn"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_e335118.js","/")
+}).call(this,require("oMfpAn"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_be89e150.js","/")
 },{"../../bower_components/jquery/dist/jquery.min.js":6,"./controllers/FlickrCtrl":1,"./controllers/TestCtrl":2,"./controllers/TheCtrl":3,"./controllers/WelcomeCtrl":4,"angular":7,"buffer":9,"oMfpAn":12}],6:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /*! jQuery v2.1.1 | (c) 2005, 2014 jQuery Foundation, Inc. | jquery.org/license */
