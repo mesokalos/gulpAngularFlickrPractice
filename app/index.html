@@ -49,8 +49,8 @@
 <div class="container" ng-controller='FlickrCtrl'>
 	<p>{{flickr}}</p>
 	<div class="repeatedObject" ng-repeat="photo in flickerPhotos">
-		<p> {{jsonFlickrApi.photos.photo.title}}</p>
-		<p><img src="'https://www.flickr.com/photos/mararenzsmith/'+{{jsonFlickrApi.photos.photo.id}}" alt="flickr photo" title="{{jsonFlickrApi.photos.photo.title}}"></p>
+		<p> {{photos.photo.id}}</p>
+		<p><img src="'https://www.flickr.com/photos/mararenzsmith/'+{{photos.photo.id}}" alt="flickr photo" title="{{photos.photo.title}}"></p>
 	</div>
 </div>
 
