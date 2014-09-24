@@ -9,6 +9,10 @@ var gulp = require('gulp'),
     rimraf = require('gulp-rimraf')
 	sass = require('gulp-sass'),
 	autoprefixer = require('gulp-autoprefixer');
+	sass1 = require('gulp-ruby-sass'),
+    minifycss = require('gulp-minify-css'),
+    rename = require('gulp-rename');
+
 
 //Modules to run a mini express server.
 //modules for webserve and livereload
@@ -65,14 +69,19 @@ gulp.task('lint', function() {
 
 //styles task
 gulp.task('styles',function(){
-	gulp.src('app/styles/*.scss')
+	gulp.src('app/styles/main.scss')
 	//the oneerror handler prevents gulp from crashing when you make a mistake in your sass
 	.pipe(sass({onError: function(e){ console.log(e); } }))
+	//{style: 'expanded'}))/
 	//optionally add autoprefixer
-	.pipe(autoprefixer('last 2 versions','> 1%','ie 8'))
+	.pipe(autoprefixer('last 2 versions','> 1%','safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
 	//this should be familiar now
-	.pipe(gulp.dest('dist/css/'));
+	.pipe(concat('main.css'))
+	.pipe(gulp.dest('dist/css/'))
 //	.pipe(refresh(lrserver));
+	.pipe(rename({suffix: '.min'}))
+    .pipe(minifycss())
+    .pipe(gulp.dest('dist/css/'))
 });
 
 
@@ -118,7 +127,7 @@ gulp.task('watch', ['lint'], function() {
     'browserify'
   ]);
   //watch our sassfiles
-  gulp.watch(['app/styles/**/*.js'],[
+  gulp.watch(['app/styles/*.scss'],[
   	'styles'
   	]);
 
@@ -126,9 +135,34 @@ gulp.task('watch', ['lint'], function() {
   	'views'
   	]);
 
-  gulp.watch('./dist/**').on('change', refresh.changed);
+  
+ gulp.watch('./dist/**').on('change', refresh.changed);
 });
 
+/*
+
+gulp.watch([
+    './dist/**'
+  ], connect.reload);
+});
+
+gulp.task('connect', connect.server({
+  root: './dist',
+  port: 1337,
+  livereload: true,
+  open: {
+    file: 'index.html',
+    browser: 'Google Chrome'
+  }
+}));
+
+gulp.task('styles', function () {
+  gulp.src('.sass-cache').pipe(clean({read:false}));
+  return gulp.src('app.styles/*.scss')
+  .pipe(sass())
+  .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+  .pipe(gulp.dest(stylesPath));
+});*/
 
 gulp.task('default',['dev','watch']);
 

@@ -47,11 +47,12 @@
 </div>
 
 <div class="container" ng-controller='FlickrCtrl'>
-	<p>{{flickr}}</p>
-	<div class="repeatedObject" ng-repeat="photo in flickerPhotos">
-		<p> {{photos.photo.id}}</p>
-		<p><img src="'https://www.flickr.com/photos/mararenzsmith/'+{{photos.photo.id}}" alt="flickr photo" title="{{photos.photo.title}}"></p>
-	</div>
+	<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+		<p>{{flickr}}</p>
+		<li class="repeatedObject" ng-repeat="photox in allPhotos | orderBy:randomSort | limitTo:12">
+			<p><a href= "{{photox.url_o}}" target="blank"><img src="{{photox.url_z}}" alt="flickr photo" title="{{photox.description}}"></a></p>
+		</li>
+	</ul>
 </div>
 
 <!--

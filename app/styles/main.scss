@@ -1,22 +1,58 @@
 @import
+"../../bower_components/foundation/scss/normalize.scss";
+
+@import
 "foundation.scss";
+
+@import
+"../../bower_components/foundation/scss/foundation.scss";
 
 @import
 "../../bower_components/foundation/scss/foundation";
 
+@import
+"../../bower_components/foundation/scss/foundation/_functions.scss";
+
+@import
+"../../bower_components/foundation/scss/foundation/_settings.scss";
+
+/*@import
+"../../bower_components/foundation/scss/foundation/components";*/
 
 $light-gray: #383838;
+
 
 html{
 	font-size: 16px;
 	font-family: Georgia, serif, cursive;
-	background-color: $light-gray;
+	background-color: black;
 	color: white;
 	padding: 1em;
 	text-align: center;
 }
 
 p{
-	color: red;
+	color: black;
 	text-shadow: 1px 1px 1px black;
 }
+
+li.center
+{	
+	display: inline-block;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+     -moz-box-align: center;
+     -ms-flex-align: center;
+	 -webkit-align-items: center;
+          align-items: center;
+	-webkit-box-pack: center;
+     -moz-box-pack: center;
+     -ms-flex-pack: center;
+	-webkit-justify-content: center;
+          justify-content: center;
+          
+	}

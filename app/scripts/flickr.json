@@ -1,4 +1,5 @@
-jsonFlickrApi({
+//jsonFlickrApi(
+{
     "photos": {
         "page": 1,
         "pages": 1,
@@ -1357,4 +1358,4 @@ jsonFlickrApi({
         }]
     },
     "stat": "ok"
-}) bundle.js: 10
+}//) bundle.js: 10
